@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cms_mobile/menu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -113,75 +114,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
-}
-
-class NavigationDrawer extends StatelessWidget {
-  const NavigationDrawer({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) => Drawer(
-        child: SingleChildScrollView(
-            child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            buildHeader(context),
-            buildMenuItems(context),
-          ],
-        )),
-      );
-
-  Widget buildHeader(BuildContext context) => Container(
-        padding: EdgeInsets.only(
-          top: MediaQuery.of(context).padding.top,
-        ),
-      );
-
-  Widget buildMenuItems(BuildContext context) => Container(
-      padding: const EdgeInsets.all(12),
-      child: Wrap(
-        runSpacing: 8,
-        children: [
-          ListTile(
-            leading: const Icon(Icons.dashboard_outlined),
-            title: const Text('Dashboard'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const Icon(Icons.group_outlined),
-            title: const Text('Contactos'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const Icon(Icons.forward_to_inbox_outlined),
-            title: const Text('Comunicaciones'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const Icon(Icons.monitor_outlined),
-            title: const Text('Landings'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const Icon(Icons.perm_media_outlined),
-            title: const Text('Multimedia'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const Icon(Icons.send_outlined),
-            title: const Text('Mailer'),
-            onTap: () {},
-          ),
-          const Divider(color: Colors.black54),
-          ListTile(
-            leading: const Icon(Icons.settings_suggest_outlined),
-            title: const Text('Configuración'),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const Icon(Icons.logout_outlined),
-            title: const Text('Logout'),
-            onTap: () {},
-          ),
-        ],
-      ));
 }
