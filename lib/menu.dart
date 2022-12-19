@@ -5,8 +5,9 @@ import 'package:cms_mobile/pages/comunicaciones_page.dart';
 import 'package:cms_mobile/pages/landings_page.dart';
 import 'package:cms_mobile/pages/multimedia_page.dart';
 import 'package:cms_mobile/pages/mailer_page.dart';
-import 'package:cms_mobile/pages/configuracion_page.dart';
+//import 'package:cms_mobile/pages/configuracion_page.dart';
 import 'package:cms_mobile/pages/mailer_smtps_page.dart';
+import 'package:cms_mobile/pages/mailer_smtps_envios_por_dominio_screen.dart';
 import 'package:cms_mobile/pages/login_page.dart';
 
 class NavigationDrawer extends StatelessWidget {
@@ -103,11 +104,21 @@ class NavigationDrawer extends StatelessWidget {
             const Divider(color: Colors.black54),
             ListTile(
               leading: const Icon(Icons.settings_suggest_outlined),
-              title: const Text('Configuración'),
+              title: const Text('SMTPs'),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const SmtpsPage(),
+                ));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings_suggest_outlined),
+              title: const Text('Envíos por Dominio'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const SmtpsEnviosPorDominioPage(),
                 ));
               },
             ),

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:cms_mobile/models/smtpModel.dart';
-import 'package:cms_mobile/data/smtps.dart';
+import 'package:cms_mobile/models/smtpEnviosPorDominioModel.dart';
+import 'package:cms_mobile/data/smtp_envios_por_dominio.dart';
 
 import 'package:http/http.dart' as http;
 
-class SmtpsPage extends StatelessWidget {
-  const SmtpsPage({Key? key}) : super(key: key);
+class SmtpsEnviosPorDominioPage extends StatelessWidget {
+  const SmtpsEnviosPorDominioPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text('SMTPs'),
+          title: const Text('SMTPs Envíos por Dominio'),
         ),
         body: FutureBuilder<List<Smtp>>(
           future: fetchItems(http.Client()),
@@ -42,8 +42,8 @@ class SmtpsList extends StatelessWidget {
       itemCount: Item.length,
       itemBuilder: (context, index) {
         return ListTile(
-          title: Text(Item[index].host),
-          subtitle: Text('ID: ' + Item[index].id.toString()),
+          title: Text(Item[index].dominio),
+          subtitle: Text('Envíos: ${Item[index].envios}'),
         );
       },
     );
