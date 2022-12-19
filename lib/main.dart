@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'CMS+',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -23,7 +24,43 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        // F7F7F7 (Blanco)
+        // 5A5A5A (Gris)
+        // EE3F3F (Rojo)
+        // FF6666 (Rojo Claro)
+        // 5CA7D7 (Azul)
+        // 50BAA5 (Verde)
+        // FFD700 (Amarillo)
+        //primarySwatch: Colors.blue,
+        colorSchemeSeed: const Color(0xFFed5565), // Rojo Secundario
+        //brightness: Brightness.dark,
+        scaffoldBackgroundColor: const Color(0xFFF7F7F7),
+        fontFamily: 'Awesome',
+        textTheme: const TextTheme(
+          bodyText2: TextStyle(
+            fontSize: 30,
+            color: Color(0xFFF7F7F7),
+          ),
+        ),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFFEE3F3F),
+          centerTitle: true,
+          toolbarHeight: 80,
+        ),
+        cardTheme: const CardTheme(
+          color: Color(0xFFFF6666),
+          margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            onPrimary: Color(0xFFF7F7F7),
+            primary: Color(0xFFFF6666),
+            textStyle: const TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Awesome'),
+          ),
+        ),
       ),
       home: const MyHomePage(title: 'CMS+'),
     );
