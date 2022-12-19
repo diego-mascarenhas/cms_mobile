@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Awesome',
         textTheme: const TextTheme(
           bodyText2: TextStyle(
-            fontSize: 30,
+            //fontSize: 30,
             color: Color(0xFFF7F7F7),
           ),
         ),
@@ -53,8 +53,8 @@ class MyApp extends StatelessWidget {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            onPrimary: Color(0xFFF7F7F7),
-            primary: Color(0xFFFF6666),
+            onPrimary: const Color(0xFFF7F7F7),
+            primary: const Color(0xFFFF6666),
             textStyle: const TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,

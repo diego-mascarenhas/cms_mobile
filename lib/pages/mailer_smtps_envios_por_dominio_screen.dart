@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:cms_mobile/models/contactoModel.dart';
-import 'package:cms_mobile/data/contactos.dart';
+import 'package:cms_mobile/models/smtpEnviosPorDominioModel.dart';
+import 'package:cms_mobile/data/smtp_envios_por_dominio.dart';
 
 import 'package:http/http.dart' as http;
 
-class ContactosPage extends StatelessWidget {
-  const ContactosPage({Key? key}) : super(key: key);
+class SmtpsEnviosPorDominioPage extends StatelessWidget {
+  const SmtpsEnviosPorDominioPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text('Contactos'),
+          title: const Text('SMTPs Envíos por Dominio'),
         ),
-        body: FutureBuilder<List<Contacto>>(
+        body: FutureBuilder<List<Smtp>>(
           future: fetchItems(http.Client()),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
@@ -20,7 +20,7 @@ class ContactosPage extends StatelessWidget {
                 child: Text('An error has occurred!'),
               );
             } else if (snapshot.hasData) {
-              return ContactosList(Item: snapshot.data!);
+              return SmtpsList(Item: snapshot.data!);
             } else {
               return const Center(
                 child: CircularProgressIndicator(color: Color(0xFFed5565)),
@@ -31,10 +31,10 @@ class ContactosPage extends StatelessWidget {
       );
 }
 
-class ContactosList extends StatelessWidget {
-  const ContactosList({super.key, required this.Item});
+class SmtpsList extends StatelessWidget {
+  const SmtpsList({super.key, required this.Item});
 
-  final List<Contacto> Item;
+  final List<Smtp> Item;
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +42,8 @@ class ContactosList extends StatelessWidget {
       itemCount: Item.length,
       itemBuilder: (context, index) {
         return ListTile(
-          title: Text(Item[index].nombre + ' ' + Item[index].apellido),
-          subtitle: Text(
-              Item[index].email), // Text('ID: ' + Item[index].id.toString()),
+          title: Text(Item[index].dominio),
+          subtitle: Text('Envíos: ${Item[index].envios}'),
         );
       },
     );
