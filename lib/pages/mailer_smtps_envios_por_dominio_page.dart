@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cms_mobile/models/smtpEnviosPorDominioModel.dart';
+import 'package:cms_mobile/models/smtp_envios_por_dominio_model.dart';
 import 'package:cms_mobile/data/smtp_envios_por_dominio.dart';
 
 import 'package:http/http.dart' as http;

@@ -7,7 +7,7 @@ import 'package:cms_mobile/pages/multimedia_page.dart';
 import 'package:cms_mobile/pages/mailer_page.dart';
 //import 'package:cms_mobile/pages/configuracion_page.dart';
 import 'package:cms_mobile/pages/mailer_smtps_page.dart';
-import 'package:cms_mobile/pages/mailer_smtps_envios_por_dominio_screen.dart';
+import 'package:cms_mobile/pages/mailer_smtps_envios_por_dominio_page.dart';
 import 'package:cms_mobile/pages/login_page.dart';
 
 class NavigationDrawer extends StatelessWidget {
