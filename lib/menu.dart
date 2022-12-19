@@ -36,9 +36,10 @@ class NavigationDrawer extends StatelessWidget {
       );
 
   Widget buildMenuItems(BuildContext context) => Container(
+        color: Colors.white,
         padding: const EdgeInsets.all(12),
         child: Wrap(
-          runSpacing: 8,
+          runSpacing: 2,
           children: [
             ListTile(
               leading: const Icon(Icons.dashboard_outlined),
