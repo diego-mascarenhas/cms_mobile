@@ -6,6 +6,7 @@ import 'package:cms_mobile/pages/landings_page.dart';
 import 'package:cms_mobile/pages/multimedia_page.dart';
 import 'package:cms_mobile/pages/mailer_page.dart';
 import 'package:cms_mobile/pages/configuracion_page.dart';
+import 'package:cms_mobile/pages/mailer_smtps_page.dart';
 import 'package:cms_mobile/pages/login_page.dart';
 
 class NavigationDrawer extends StatelessWidget {
@@ -106,7 +107,7 @@ class NavigationDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.pop(context);
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const ConfiguracionPage(),
+                  builder: (context) => const SmtpsPage(),
                 ));
               },
             ),
