@@ -10,7 +10,7 @@ class SmtpsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text('SMTPs'),
+          title: const Text('Mails en Cola'),
         ),
         body: FutureBuilder<List<Smtp>>(
           future: fetchItems(http.Client()),
@@ -43,7 +43,7 @@ class SmtpsList extends StatelessWidget {
       itemBuilder: (context, index) {
         return ListTile(
           title: Text(Item[index].host),
-          subtitle: Text('ID: ' + Item[index].id.toString()),
+          subtitle: Text('Mails en cola: ${Item[index].mailq}'),
         );
       },
     );

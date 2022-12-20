@@ -10,7 +10,7 @@ class SmtpsEnviosPorDominioPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text('SMTPs Envíos por Dominio'),
+          title: const Text('Envíos por Dominio'),
         ),
         body: FutureBuilder<List<Smtp>>(
           future: fetchItems(http.Client()),

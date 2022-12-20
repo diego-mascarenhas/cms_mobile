@@ -17,8 +17,8 @@ class _ComunicacionesPageState extends State<ComunicacionesPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-            title: const Text('Comunicaciones'),
-            backgroundColor: Colors.yellow),
+          title: const Text('Comunicaciones'),
+        ),
         body: SlidableAutoCloseBehavior(
           closeWhenOpened: true,
           child: ListView.builder(
@@ -51,7 +51,7 @@ class _ComunicacionesPageState extends State<ComunicacionesPage> {
                       ],
                     ),
                     endActionPane: ActionPane(
-                      motion: BehindMotion(),
+                      motion: const BehindMotion(),
                       dismissible: DismissiblePane(
                         onDismissed: () => _onDismissed(index, Actions.delete),
                       ),
