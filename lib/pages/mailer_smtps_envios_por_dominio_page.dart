@@ -20,7 +20,7 @@ class SmtpsEnviosPorDominioPage extends StatelessWidget {
                 child: Text('An error has occurred!'),
               );
             } else if (snapshot.hasData) {
-              return SmtpsList(Item: snapshot.data!);
+              return SmtpsList(item: snapshot.data!);
             } else {
               return const Center(
                 child: CircularProgressIndicator(color: Color(0xFFed5565)),
@@ -32,18 +32,18 @@ class SmtpsEnviosPorDominioPage extends StatelessWidget {
 }
 
 class SmtpsList extends StatelessWidget {
-  const SmtpsList({super.key, required this.Item});
+  const SmtpsList({super.key, required this.item});
 
-  final List<Smtp> Item;
+  final List<Smtp> item;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: Item.length,
+      itemCount: item.length,
       itemBuilder: (context, index) {
         return ListTile(
-          title: Text(Item[index].dominio),
-          subtitle: Text('Envíos: ${Item[index].envios}'),
+          title: Text(item[index].dominio),
+          subtitle: Text('Envíos: ${item[index].envios}'),
         );
       },
     );
