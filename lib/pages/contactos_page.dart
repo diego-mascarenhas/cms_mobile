@@ -20,7 +20,7 @@ class ContactosPage extends StatelessWidget {
                 child: Text('An error has occurred!'),
               );
             } else if (snapshot.hasData) {
-              return ContactosList(Item: snapshot.data!);
+              return ContactosList(item: snapshot.data!);
             } else {
               return const Center(
                 child: CircularProgressIndicator(color: Color(0xFFed5565)),
@@ -32,19 +32,19 @@ class ContactosPage extends StatelessWidget {
 }
 
 class ContactosList extends StatelessWidget {
-  const ContactosList({super.key, required this.Item});
+  const ContactosList({super.key, required this.item});
 
-  final List<Contacto> Item;
+  final List<Contacto> item;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: Item.length,
+      itemCount: item.length,
       itemBuilder: (context, index) {
         return ListTile(
-          title: Text(Item[index].nombre + ' ' + Item[index].apellido),
+          title: Text('${item[index].nombre} ${item[index].apellido}'),
           subtitle: Text(
-              Item[index].email), // Text('ID: ' + Item[index].id.toString()),
+              item[index].email), // Text('ID: ' + Item[index].id.toString()),
         );
       },
     );

@@ -10,22 +10,6 @@ class MailerPage extends StatefulWidget {
 
 class _MailerPageState extends State<MailerPage> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Mensajes',
-      style: optionStyle,
-    ),
-    Text(
-      'Listas',
-      style: optionStyle,
-    ),
-    Text(
-      'Plantillas',
-      style: optionStyle,
-    ),
-  ];
 
   void _onItemTapped(int index) {
     setState(() {

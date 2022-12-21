@@ -53,8 +53,8 @@ class MyApp extends StatelessWidget {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            onPrimary: const Color(0xFFF7F7F7),
-            primary: const Color(0xFFFF6666),
+            foregroundColor: const Color(0xFFF7F7F7),
+            backgroundColor: const Color(0xFFFF6666),
             textStyle: const TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,

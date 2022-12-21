@@ -10,7 +10,7 @@ class SmtpsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text('SMTPs'),
+          title: const Text('Mails en Cola'),
         ),
         body: FutureBuilder<List<Smtp>>(
           future: fetchItems(http.Client()),
@@ -20,7 +20,7 @@ class SmtpsPage extends StatelessWidget {
                 child: Text('An error has occurred!'),
               );
             } else if (snapshot.hasData) {
-              return SmtpsList(Item: snapshot.data!);
+              return SmtpsList(item: snapshot.data!);
             } else {
               return const Center(
                 child: CircularProgressIndicator(color: Color(0xFFed5565)),
@@ -32,18 +32,18 @@ class SmtpsPage extends StatelessWidget {
 }
 
 class SmtpsList extends StatelessWidget {
-  const SmtpsList({super.key, required this.Item});
+  const SmtpsList({super.key, required this.item});
 
-  final List<Smtp> Item;
+  final List<Smtp> item;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: Item.length,
+      itemCount: item.length,
       itemBuilder: (context, index) {
         return ListTile(
-          title: Text(Item[index].host),
-          subtitle: Text('ID: ' + Item[index].id.toString()),
+          title: Text(item[index].host),
+          subtitle: Text('Mails en cola: ${item[index].mailq}'),
         );
       },
     );

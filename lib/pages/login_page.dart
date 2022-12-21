@@ -9,18 +9,16 @@ class LoginPage extends StatelessWidget {
       );
 
   Widget loginForm() {
-    return Container(
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            titulo(),
-            campoUser(),
-            campoPass(),
-            const SizedBox(height: 10),
-            botonEntrar(),
-          ],
-        ),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          titulo(),
+          campoUser(),
+          campoPass(),
+          const SizedBox(height: 10),
+          botonEntrar(),
+        ],
       ),
     );
   }

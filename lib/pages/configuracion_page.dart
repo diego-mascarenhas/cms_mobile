@@ -1,13 +1,46 @@
+import 'package:cms_mobile/pages/mailer_smtps_envios_por_dominio_page.dart';
+import 'package:cms_mobile/pages/mailer_smtps_page.dart';
 import 'package:flutter/material.dart';
 
 class ConfiguracionPage extends StatelessWidget {
-  const ConfiguracionPage({Key? key}) : super(key: key);
+  const ConfiguracionPage({super.key});
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: const Text('Configuración'),
-          backgroundColor: Colors.grey,
-        ),
-      );
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Configuración'),
+      ),
+      body: ListView(
+        children: [
+          ListTile(
+            title: const Text('Emails en Cola'),
+            subtitle: const Text('SMTPs'),
+            trailing: const Icon(Icons.keyboard_arrow_right_sharp),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SmtpsPage(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Envíos por Dominio'),
+            subtitle: const Text('SMTPs'),
+            trailing: const Icon(Icons.keyboard_arrow_right_sharp),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SmtpsEnviosPorDominioPage(),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
 }
