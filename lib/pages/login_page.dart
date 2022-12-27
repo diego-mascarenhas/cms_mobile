@@ -1,7 +1,36 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:cms_mobile/pages/dashboard_page.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  var usernameController = TextEditingController();
+  var passwordController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    checkLogin();
+  }
+
+  void checkLogin() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    String? val = pref.getString('login');
+
+    if (val != null) {
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => const DashboardPage()),
+          (route) => false);
+    }
+  }
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -13,47 +42,94 @@ class LoginPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          titulo(),
-          campoUser(),
-          campoPass(),
-          const SizedBox(height: 10),
-          botonEntrar(),
+          const Text(
+            'Iniciar Sesión',
+            style: TextStyle(fontSize: 18, color: Colors.red),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 3),
+            child: TextFormField(
+              controller: usernameController,
+              decoration: const InputDecoration(
+                labelText: 'Usuario',
+                border: OutlineInputBorder(),
+                suffixIcon: Icon(Icons.perm_identity_sharp),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 3),
+            child: TextFormField(
+              controller: passwordController,
+              obscureText: true,
+              decoration: const InputDecoration(
+                labelText: 'Contraseña',
+                border: OutlineInputBorder(),
+                suffixIcon: Icon(Icons.lock_outlined),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          OutlinedButton.icon(
+            onPressed: () {
+              login();
+            },
+            icon: const Icon(Icons.login),
+            label: const Text('Entrar'),
+          ),
         ],
       ),
     );
   }
-}
 
-Widget titulo() {
-  return const Text(
-    'Iniciar Sesión',
-    style: TextStyle(fontSize: 18),
-  );
-}
+  void login() async {
+    if (passwordController.text.isNotEmpty &&
+        usernameController.text.isNotEmpty) {
+      var response =
+          await http.post(Uri.parse('https://api.revisionalpha.es/users/login'),
+              body: ({
+                "username": usernameController.text,
+                "password": passwordController.text,
+              }));
+      if (response.statusCode == 200) {
+        final body = jsonDecode(response.body);
+        print(body['token']);
 
-Widget campoUser() {
-  return Container(
-    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
-    child: const TextField(
-      decoration: InputDecoration(
-          hintText: 'Usuario', fillColor: Colors.grey, filled: true),
-    ),
-  );
-}
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(body['token']),
+          ),
+        );
+        pageRoute(body['token']);
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Acceso denegado'),
+          ),
+        );
+      }
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Por favor completa los campos'),
+        ),
+      );
+    }
+  }
 
-Widget campoPass() {
-  return Container(
-    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
-    child: const TextField(
-      decoration: InputDecoration(
-          hintText: 'Contraseña', fillColor: Colors.grey, filled: true),
-    ),
-  );
-}
-
-Widget botonEntrar() {
-  return ElevatedButton(
-    onPressed: () {},
-    child: const Text('Entrar'),
-  );
+  void pageRoute(String token) async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    await pref.setString('login', token);
+    Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const DashboardPage()),
+        (route) => false);
+  }
 }

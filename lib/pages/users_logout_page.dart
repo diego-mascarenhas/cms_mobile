@@ -1,16 +1,16 @@
+import 'package:cms_mobile/main.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cms_mobile/menu.dart';
-import 'package:cms_mobile/pages/login_page.dart';
 
-class DashboardPage extends StatefulWidget {
-  const DashboardPage({super.key});
+class LogoutPage extends StatefulWidget {
+  const LogoutPage({super.key});
 
   @override
-  State<DashboardPage> createState() => _DashboardPageState();
+  State<LogoutPage> createState() => _LogoutPageState();
 }
 
-class _DashboardPageState extends State<DashboardPage> {
+class _LogoutPageState extends State<LogoutPage> {
   String token = '';
 
   @override
@@ -30,7 +30,7 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dashboard'),
+        title: const Text('Logout'),
       ),
       drawer: const NavigationDrawer(),
       body: SafeArea(
@@ -58,7 +58,9 @@ class _DashboardPageState extends State<DashboardPage> {
                     await pref.clear();
                     Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute(
-                            builder: (context) => const LoginPage()),
+                            builder: (context) => const MyHomePage(
+                                  title: 'Home!',
+                                )),
                         (route) => false);
                   },
                   icon: const Icon(Icons.logout),
