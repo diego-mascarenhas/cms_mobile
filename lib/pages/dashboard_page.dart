@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cms_mobile/menu.dart';
 import 'package:cms_mobile/pages/login_page.dart';
 import 'package:cms_mobile/pages/comunicaciones_page.dart';
+import 'package:cms_mobile/pages/facturas_page.dart';
 
 enum MenuItem { item1, item2, item3 }
 
@@ -49,7 +50,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       builder: (context) => const ContactosPage()));
                 } else if (value == MenuItem.item2) {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ComunicacionesPage()));
+                      builder: (context) => const FacturasPage()));
                 } else if (value == MenuItem.item3) {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const ComunicacionesPage()));
