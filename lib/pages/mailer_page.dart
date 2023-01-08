@@ -1,7 +1,6 @@
-import 'package:cms_mobile/pages/mailer_mensajes_page.dart';
-import 'package:cms_mobile/pages/mailer_smtps_envios_por_dominio_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cms_mobile/menu.dart';
+import 'package:cms_mobile/pages/mailer_mensajes_page.dart';
 
 class MailerPage extends StatefulWidget {
   const MailerPage({Key? key}) : super(key: key);

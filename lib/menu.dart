@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:cms_mobile/pages/dashboard_page.dart';
 import 'package:cms_mobile/pages/contactos_page.dart';
 import 'package:cms_mobile/pages/comunicaciones_page.dart';
+import 'package:cms_mobile/pages/tienda_page.dart';
+import 'package:cms_mobile/pages/mailer_page.dart';
 import 'package:cms_mobile/pages/landings_page.dart';
 import 'package:cms_mobile/pages/multimedia_page.dart';
-import 'package:cms_mobile/pages/mailer_page.dart';
 import 'package:cms_mobile/pages/configuracion_page.dart';
-import 'package:cms_mobile/pages/login_page.dart';
 import 'package:cms_mobile/pages/users_logout_page.dart';
 
 class NavigationDrawer extends StatelessWidget {
@@ -76,7 +76,7 @@ class NavigationDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.pop(context);
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const MailerPage(),
+                  builder: (context) => const TiendaPage(),
                 ));
               },
             ),
