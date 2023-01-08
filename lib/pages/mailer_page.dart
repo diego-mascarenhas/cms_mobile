@@ -1,3 +1,5 @@
+import 'package:cms_mobile/pages/mailer_mensajes_page.dart';
+import 'package:cms_mobile/pages/mailer_smtps_envios_por_dominio_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cms_mobile/menu.dart';
 
@@ -24,6 +26,7 @@ class _MailerPageState extends State<MailerPage> {
           backgroundColor: Colors.green,
         ),
         drawer: const NavigationDrawer(),
+        body: const MailerMensajesPage(),
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.green,
           items: const <BottomNavigationBarItem>[
