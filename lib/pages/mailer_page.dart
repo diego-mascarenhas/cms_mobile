@@ -22,12 +22,12 @@ class _MailerPageState extends State<MailerPage> {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: const Text('Mailer'),
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.blue,
         ),
         drawer: const NavigationDrawer(),
         body: const MailerMensajesPage(),
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.blue,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.send),

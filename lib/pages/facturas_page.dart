@@ -42,7 +42,7 @@ class FacturasList extends StatelessWidget {
       itemCount: item.length,
       itemBuilder: (context, index) {
         return ListTile(
-          title: Text('${item[index].operacion} ${item[index].numero}'),
+          title: Text('${item[index].comprobante} ${item[index].total}'),
           subtitle: Text(
               item[index].fecha), // Text('ID: ' + Item[index].id.toString()),
         );

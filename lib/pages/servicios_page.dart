@@ -42,9 +42,9 @@ class ServiciosList extends StatelessWidget {
       itemCount: item.length,
       itemBuilder: (context, index) {
         return ListTile(
-          title: Text('${item[index].operacion} ${item[index].operacion}'),
+          title: Text('${item[index].descripcion} ${item[index].descripcion}'),
           subtitle: Text(
-              item[index].valor), // Text('ID: ' + Item[index].id.toString()),
+              item[index].total), // Text('ID: ' + Item[index].id.toString()),
         );
       },
     );

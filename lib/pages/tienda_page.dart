@@ -8,7 +8,7 @@ class TiendaPage extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: const Text('Tienda'),
-          backgroundColor: Colors.orange,
+          backgroundColor: Colors.green,
         ),
         drawer: const NavigationDrawer(),
       );

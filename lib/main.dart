@@ -127,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'Aún no has iniciado sesión :-(',
               style: Theme.of(context).textTheme.bodyText1,
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             OutlinedButton.icon(

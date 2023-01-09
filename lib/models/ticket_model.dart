@@ -17,9 +17,9 @@ class Ticket {
     return Ticket(
       id: int.parse(json['id']),
       asunto: json['asunto'] as String,
-      area: json['id_area'] as String,
+      area: json['area'] as String,
       prioridad: json['prioridad'] as String,
-      estado: int.parse(json['estado']),
+      estado: int.parse(json['id_estado']),
     );
   }
 }
