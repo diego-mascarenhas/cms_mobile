@@ -1,5 +1,6 @@
 import 'package:cms_mobile/pages/mailer_smtps_envios_por_dominio_page.dart';
 import 'package:cms_mobile/pages/mailer_smtps_page.dart';
+import 'package:cms_mobile/pages/trade_signals_page.dart';
 import 'package:flutter/material.dart';
 
 class ConfiguracionPage extends StatelessWidget {
@@ -35,6 +36,19 @@ class ConfiguracionPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => const SmtpsEnviosPorDominioPage(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Trade Signals'),
+            subtitle: const Text('Señales de Compra y Venta'),
+            trailing: const Icon(Icons.keyboard_arrow_right_sharp),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const TradeSignalsPage(),
                 ),
               );
             },
