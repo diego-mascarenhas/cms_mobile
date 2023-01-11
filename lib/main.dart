@@ -15,14 +15,26 @@ class MyApp extends StatelessWidget {
       title: 'CMS+',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // F7F7F7 (Blanco)
-        // 5A5A5A (Gris)
-        // EE3F3F (Rojo)
-        // FF6666 (Rojo Claro)
-        // 5CA7D7 (Azul)
-        // 50BAA5 (Verde)
-        // FFD700 (Amarillo)
-        colorSchemeSeed: const Color(0xFFed5565), // Rojo Secundario
+        // 0xFFF7F7F7 (Blanco)
+        // 0xFF5A5A5A (Gris)
+        // 0xFFEE3F3F (Rojo)
+        // 0xFFFF6666 (Rojo Claro)
+        // 0xFF5CA7D7 (Azul)
+        // 0xFF50BAA5 (Verde)
+        // 0xFFFFD700 (Amarillo)
+        //colorSchemeSeed: const Color(0xFFed5565), // Rojo Secundario
+        primaryTextTheme: const TextTheme(
+          headline2: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w400,
+            color: Colors.amber,
+          ),
+          bodyText2: TextStyle(
+            color: Colors.amber,
+            fontSize: 22,
+          ),
+        ),
+        primaryColor: const Color(0xFFEE3F3F),
         //brightness: Brightness.dark,
         scaffoldBackgroundColor: const Color(0xFFF7F7F7),
         fontFamily: 'Awesome',
@@ -35,18 +47,49 @@ class MyApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(
           backgroundColor: Color(0xFFEE3F3F),
           centerTitle: true,
-          toolbarHeight: 80,
+          //toolbarHeight: 80,
         ),
         cardTheme: const CardTheme(
           color: Color(0xFFFF6666),
           margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            foregroundColor: const Color(0xFFF7F7F7),
-            backgroundColor: const Color(0xFFFF6666),
+        inputDecorationTheme: const InputDecorationTheme(
+          labelStyle: TextStyle(
+            color: Color(0xFF5A5A5A),
+          ),
+          suffixIconColor: Colors.red,
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              width: 1,
+              color: Color(0xFFFF6666),
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              width: 1,
+              color: Color(0xFFFF6666),
+            ),
+          ),
+        ),
+        // elevatedButtonTheme: ElevatedButtonThemeData(
+        //   style: ElevatedButton.styleFrom(
+        //     foregroundColor: const Color(0xFFF7F7F7),
+        //     backgroundColor: const Color(0xFFFF6666),
+        //     textStyle: const TextStyle(
+        //         fontSize: 18,
+        //         fontWeight: FontWeight.bold,
+        //         fontFamily: 'Awesome'),
+        //   ),
+        // ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            side: const BorderSide(
+              width: 1,
+              color: Color(0xFFFF6666),
+            ),
+            foregroundColor: const Color(0xFFFF6666),
             textStyle: const TextStyle(
-                fontSize: 22,
+                //fontSize: 18,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Awesome'),
           ),
@@ -84,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'Aún no has iniciado sesión :-(',
               style: Theme.of(context).textTheme.bodyText1,
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             OutlinedButton.icon(

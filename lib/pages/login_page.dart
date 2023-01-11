@@ -39,53 +39,63 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget loginForm() {
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const Text(
-            'Iniciar Sesión',
-            style: TextStyle(fontSize: 18, color: Colors.red),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 3),
-            child: TextFormField(
-              controller: usernameController,
-              decoration: const InputDecoration(
-                labelText: 'Usuario',
-                border: OutlineInputBorder(),
-                suffixIcon: Icon(Icons.perm_identity_sharp),
+      child: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: const Image(image: AssetImage('assets/images/logo.png')),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Text(
+              'Ingresa tus datos de acceso',
+              style: Theme.of(context).textTheme.bodyText2,
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 3),
+              child: TextFormField(
+                controller: usernameController,
+                decoration: const InputDecoration(
+                  labelText: 'Usuario',
+                  border: OutlineInputBorder(),
+                  suffixIcon: Icon(Icons.perm_identity_sharp),
+                ),
               ),
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 3),
-            child: TextFormField(
-              controller: passwordController,
-              obscureText: true,
-              decoration: const InputDecoration(
-                labelText: 'Contraseña',
-                border: OutlineInputBorder(),
-                suffixIcon: Icon(Icons.lock_outlined),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 3),
+              child: TextFormField(
+                controller: passwordController,
+                obscureText: true,
+                decoration: const InputDecoration(
+                  labelText: 'Contraseña',
+                  border: OutlineInputBorder(),
+                  suffixIcon: Icon(Icons.lock_outlined),
+                ),
               ),
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          OutlinedButton.icon(
-            onPressed: () {
-              login();
-            },
-            icon: const Icon(Icons.login),
-            label: const Text('Entrar'),
-          ),
-        ],
+            const SizedBox(
+              height: 20,
+            ),
+            OutlinedButton.icon(
+              onPressed: () {
+                login();
+              },
+              icon: const Icon(Icons.login),
+              label: const Text('Entrar'),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cms_mobile/menu.dart';
+import 'package:cms_mobile/pages/mailer_mensajes_page.dart';
 
 class MailerPage extends StatefulWidget {
   const MailerPage({Key? key}) : super(key: key);
@@ -21,11 +22,12 @@ class _MailerPageState extends State<MailerPage> {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: const Text('Mailer'),
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.blue,
         ),
         drawer: const NavigationDrawer(),
+        body: const MailerMensajesPage(),
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.blue,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.send),
