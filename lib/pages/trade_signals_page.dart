@@ -3,6 +3,7 @@ import 'package:cms_mobile/models/trade_signal_model.dart';
 import 'package:cms_mobile/data/trade_signal.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 
 class TradeSignalsPage extends StatelessWidget {
   const TradeSignalsPage({Key? key}) : super(key: key);
@@ -43,7 +44,7 @@ class TradeSignalsList extends StatelessWidget {
       itemBuilder: (context, index) {
         return ListTile(
           contentPadding: const EdgeInsets.all(15),
-          title: Text(item[index].signal,
+          title: Text(item[index].triger,
               style: TextStyle(
                   color: (item[index].side == 'sell')
                       ? Colors.red
@@ -51,18 +52,15 @@ class TradeSignalsList extends StatelessWidget {
           subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(item[index].triger), //${item[index].symbol}:
-              Text('${item[index].fecha_alta} UTC'),
+              Text('${item[index].signal} (${item[index].symbol})'),
+              Text(DateFormat('dd/MM/yyyy HH:mm:ss')
+                  .format(DateTime.parse(item[index].fecha_alta).toLocal())),
             ],
           ),
-          //textColor: (item[index].side == 'sell') ? Colors.red : Colors.green,
           leading: CircleAvatar(
             radius: 25,
             backgroundImage: NetworkImage(
-                'http://api.revisionalpha.es/app-assets/icons/${item[index].symbol.replaceAll('USDT', '').toLowerCase()}.png'),
-            // https://finandy.com/coins/32@2x/OCEANx32@2x.png
-
-            //AssetImage('assets/icons/${item[index].symbol.replaceAll('USDT', '')}2x.png'),
+                'https://finandy.com/coins/32@2x/${item[index].symbol.replaceAll(RegExp('USDT|USDTPERP|PERP'), '').toUpperCase()}x32@2x.png'),
           ),
           trailing: const Icon(Icons.arrow_forward_ios),
         );
