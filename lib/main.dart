@@ -1,5 +1,7 @@
-import 'package:cms_mobile/pages/login_page.dart';
+import 'package:cms_mobile/pages/users_login_page.dart';
 import 'package:flutter/material.dart';
+
+import 'menu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -115,6 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
+      drawer: const NavigationDrawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
