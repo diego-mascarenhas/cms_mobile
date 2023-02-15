@@ -1,7 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:cms_mobile/pages/mailer_smtps_envios_por_dominio_page.dart';
 import 'package:cms_mobile/pages/mailer_smtps_page.dart';
 import 'package:cms_mobile/pages/trade_signals_page.dart';
-import 'package:flutter/material.dart';
+
+import 'package:cms_mobile/pages/gestion_static_page.dart';
 
 class ConfiguracionPage extends StatelessWidget {
   const ConfiguracionPage({super.key});
@@ -49,6 +51,19 @@ class ConfiguracionPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => const TradeSignalsPage(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Gestión'),
+            subtitle: const Text('Balances'),
+            trailing: const Icon(Icons.keyboard_arrow_right_sharp),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const GestionPage(),
                 ),
               );
             },

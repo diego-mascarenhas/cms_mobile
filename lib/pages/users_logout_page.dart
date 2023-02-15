@@ -1,4 +1,5 @@
 import 'package:cms_mobile/main.dart';
+import 'package:cms_mobile/pages/dashboard_page.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cms_mobile/menu.dart';
@@ -58,8 +59,8 @@ class _LogoutPageState extends State<LogoutPage> {
                     await pref.clear();
                     Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute(
-                            builder: (context) => const MyHomePage(
-                                  title: 'Home!',
+                            builder: (context) => const DashboardPage(
+                                //title: 'Home!',
                                 )),
                         (route) => false);
                   },
