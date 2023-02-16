@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cms_mobile/menu.dart';
+import 'package:cms_mobile/menu.dart' as my_menu;
 import 'package:cms_mobile/pages/mailer_mensajes_page.dart';
 
 class MailerPage extends StatefulWidget {
@@ -24,7 +24,7 @@ class _MailerPageState extends State<MailerPage> {
           title: const Text('Mailer'),
           backgroundColor: Colors.blue,
         ),
-        drawer: const NavigationDrawer(),
+        drawer: const my_menu.NavigationDrawer(),
         body: const MailerMensajesPage(),
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.blue,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:cms_mobile/menu.dart';
+import 'package:cms_mobile/menu.dart' as my_menu;
 import 'package:cms_mobile/pages/users_login_page.dart';
 import 'package:cms_mobile/pages/users_logout_page.dart';
 import 'package:cms_mobile/pages/servicios_page.dart';
@@ -100,7 +100,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   )
                 ],
         ),
-        drawer: const NavigationDrawer(),
+        drawer: const my_menu.NavigationDrawer(),
         body: MyWidget());
   }
 }

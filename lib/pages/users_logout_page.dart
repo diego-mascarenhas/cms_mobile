@@ -2,7 +2,7 @@ import 'package:cms_mobile/main.dart';
 import 'package:cms_mobile/pages/dashboard_page.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:cms_mobile/menu.dart';
+import 'package:cms_mobile/menu.dart' as my_menu;
 
 class LogoutPage extends StatefulWidget {
   const LogoutPage({super.key});
@@ -33,7 +33,7 @@ class _LogoutPageState extends State<LogoutPage> {
       appBar: AppBar(
         title: const Text('Logout'),
       ),
-      drawer: const NavigationDrawer(),
+      drawer: const my_menu.NavigationDrawer(),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(15.0),

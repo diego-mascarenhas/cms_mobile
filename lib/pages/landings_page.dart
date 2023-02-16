@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cms_mobile/menu.dart';
+import 'package:cms_mobile/menu.dart' as my_menu;
 
 class LandingsPage extends StatelessWidget {
   const LandingsPage({Key? key}) : super(key: key);
@@ -10,6 +10,6 @@ class LandingsPage extends StatelessWidget {
           title: const Text('Landings'),
           backgroundColor: Colors.brown,
         ),
-        drawer: const NavigationDrawer(),
+        drawer: const my_menu.NavigationDrawer(),
       );
 }
