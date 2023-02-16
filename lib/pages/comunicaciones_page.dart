@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cms_mobile/models/user.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:cms_mobile/menu.dart';
+import 'package:cms_mobile/menu.dart' as my_menu;
 
 enum Actions { share, delete, archive }
 
@@ -20,7 +20,7 @@ class _ComunicacionesPageState extends State<ComunicacionesPage> {
         appBar: AppBar(
           title: const Text('Comunicaciones'),
         ),
-        drawer: const NavigationDrawer(),
+        drawer: const my_menu.NavigationDrawer(),
         body: SlidableAutoCloseBehavior(
           closeWhenOpened: true,
           child: ListView.builder(

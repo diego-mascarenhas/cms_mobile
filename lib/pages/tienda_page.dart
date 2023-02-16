@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cms_mobile/menu.dart';
+import 'package:cms_mobile/menu.dart' as my_menu;
 
 class TiendaPage extends StatelessWidget {
   const TiendaPage({Key? key}) : super(key: key);
@@ -10,6 +10,6 @@ class TiendaPage extends StatelessWidget {
           title: const Text('Tienda'),
           backgroundColor: Colors.green,
         ),
-        drawer: const NavigationDrawer(),
+        drawer: const my_menu.NavigationDrawer(),
       );
 }

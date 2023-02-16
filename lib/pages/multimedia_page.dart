@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cms_mobile/menu.dart';
+import 'package:cms_mobile/menu.dart' as my_menu;
 
 class MultimediaPage extends StatelessWidget {
   const MultimediaPage({Key? key}) : super(key: key);
@@ -10,6 +10,6 @@ class MultimediaPage extends StatelessWidget {
           title: const Text('Multimedia'),
           backgroundColor: Colors.orange,
         ),
-        drawer: const NavigationDrawer(),
+        drawer: const my_menu.NavigationDrawer(),
       );
 }

@@ -62,7 +62,7 @@ class TradeSignalsList extends StatelessWidget {
                       height: 1.2),
                 ),
                 Text(
-                  '${item[index].symbol} - ${DateFormat('dd/MM/yyyy HH:mm:ss').format(DateTime.parse(item[index].fechaAlta).toLocal())} hs',
+                  '${item[index].symbol} - ${DateFormat('dd/MM/yyyy HH:mm:ss').format(DateTime.parse(item[index].fechaAlta).toLocal())}',
                   style: TextStyle(
                       fontSize: 12 * MediaQuery.textScaleFactorOf(context),
                       height: 1.5),

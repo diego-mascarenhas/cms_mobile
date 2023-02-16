@@ -1,7 +1,7 @@
 import 'package:cms_mobile/pages/users_login_page.dart';
 import 'package:flutter/material.dart';
 
-import 'menu.dart';
+import 'menu.dart' as my_menu;
 
 void main() {
   runApp(const MyApp());
@@ -117,18 +117,18 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      drawer: const NavigationDrawer(),
+      drawer: const my_menu.NavigationDrawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
               'Hola!',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
             Text(
               'Aún no has iniciado sesión :-(',
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             const SizedBox(
               height: 15,
