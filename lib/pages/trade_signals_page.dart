@@ -49,7 +49,7 @@ class TradeSignalsList extends StatelessWidget {
               style: TextStyle(
                   color:
                       (item[index].side == 'sell') ? Colors.red : Colors.green,
-                  fontSize: 18 * MediaQuery.textScaleFactorOf(context),
+                  fontSize: 18,
                   height: 1.2),
             ),
             subtitle: Column(
@@ -57,15 +57,11 @@ class TradeSignalsList extends StatelessWidget {
               children: [
                 Text(
                   '${item[index].signal} ${item[index].timeFrame}\'',
-                  style: TextStyle(
-                      fontSize: 16 * MediaQuery.textScaleFactorOf(context),
-                      height: 1.2),
+                  style: const TextStyle(fontSize: 16, height: 1.2),
                 ),
                 Text(
                   '${item[index].symbol} - ${DateFormat('dd/MM/yyyy HH:mm:ss').format(DateTime.parse(item[index].fechaAlta).toLocal())}',
-                  style: TextStyle(
-                      fontSize: 12 * MediaQuery.textScaleFactorOf(context),
-                      height: 1.5),
+                  style: const TextStyle(fontSize: 12, height: 1.5),
                 ),
               ],
             ),
