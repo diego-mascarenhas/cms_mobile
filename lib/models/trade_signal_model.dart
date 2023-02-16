@@ -4,7 +4,10 @@ class TradeSignal {
   final String triger;
   final String symbol;
   final String side;
-  final String fecha_alta;
+  final int timeFrame;
+  final bool highVolatility;
+  final bool volBreak;
+  final String fechaAlta;
 
   const TradeSignal({
     required this.id,
@@ -12,7 +15,10 @@ class TradeSignal {
     required this.triger,
     required this.symbol,
     required this.side,
-    required this.fecha_alta,
+    required this.timeFrame,
+    required this.highVolatility,
+    required this.volBreak,
+    required this.fechaAlta,
   });
 
   factory TradeSignal.fromJson(Map<String, dynamic> json) {
@@ -22,7 +28,10 @@ class TradeSignal {
       triger: json['triger'] as String,
       symbol: json['symbol'] as String,
       side: json['side'] as String,
-      fecha_alta: json['fecha_alta'] as String,
+      timeFrame: int.parse(json['time_frame']),
+      highVolatility: json['high_volatility'] == "1",
+      volBreak: json['vol_break'] == "1",
+      fechaAlta: json['fecha_alta'] as String,
     );
   }
 }
